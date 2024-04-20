@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Product>
+
+<style>
+
+    body{
+        background-color:pink;
+    }
+    /* Styling untuk latar belakang "Daftar Produk" */
+    .product-list-header {
+        background-color: pink; /* Warna latar belakang */
+        padding: 20px; /* Ruang padding */
+        margin-bottom: 20px; /* Ruang bawah */
+    }
+
+        /* Styling untuk teks "Daftar Produk" */
+        .product-list-header h2 {
+            margin-bottom: 0; /* Hapus margin bawah agar lebih dekat dengan elemen berikutnya */
+        }
+</style>
+
+<body>
+    <div class="product-list-header">
+        <h2>Daftar Produk</h2>
+    </div>
+
+    <div class="row">
+        @foreach (var product in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="@Url.Content("~/images/" + product.Image)" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">@product.Name</h5>
+                        <p class="card-text">@product.Description</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary">Harga: Rp @product.Price</button>
+                                <button type="button" class="btn btn-sm btn-outline-secondary">Stok: @product.Stok</button>
+                            </div>
+                            <a href="/order/create/@product.Id" class="btn btn-danger">Pesan</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</body>
+
+

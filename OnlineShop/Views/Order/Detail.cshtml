@@ -1,0 +1,55 @@
+﻿@model OnlineShop.Models.Order
+
+<div class="container mt-5">
+    <h2 class="mb-4">Detail Pesanan</h2>
+    <form>
+        <div class="form-group row">
+            <label for="orderId" class="col-sm-3 col-form-label">Order ID:</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="orderId" value="@Model.Id" readonly>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="customerName" class="col-sm-3 col-form-label">Nama Pelanggan:</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="customerName" value="@Model.CustomerName" readonly>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="address" class="col-sm-3 col-form-label">Alamat Pengiriman:</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="address" value="@Model.Address" readonly>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="phoneNumber" class="col-sm-3 col-form-label">Nomor Telepon:</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="phoneNumber" value="@Model.PhoneNumber" readonly>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="status" class="col-sm-3 col-form-label">Status:</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="status" value="@Model.Status" readonly>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="productName" class="col-sm-3 col-form-label">Produk:</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="productName" value="@Model.Product.Name" readonly>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="productDescription" class="col-sm-3 col-form-label">Deskripsi:</label>
+            <div class="col-sm-9">
+                <textarea class="form-control" id="productDescription" rows="3" readonly>@Model.Product.Description</textarea>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="productPrice" class="col-sm-3 col-form-label">Harga:</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="productPrice" value="@Model.Product.Price" readonly>
+            </div>
+        </div>
+    </form>
+</div>

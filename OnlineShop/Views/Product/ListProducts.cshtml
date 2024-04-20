@@ -1,0 +1,40 @@
+﻿@model List<Product>
+
+<h2>Daftar Produk</h2>
+
+<div style="text-align: right;">
+    <a href="/product/Create" class="btn btn-success">Add Produk</a>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nama</th>
+            <th>Deskripsi</th>
+            <th>Harga</th>
+            <th>Gambar</th>
+            <th>Stok</th>
+            <th>Keterangan</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.Id</td>
+                <td>@product.Name</td>
+                <td>@product.Description</td>
+                <td>@product.Price</td>
+                <td>
+                    <img src="@Url.Content("~/images/" + product.Image)" alt="@product.Name" width="100" height="100" />
+                </td>
+                <td>@product.Stok</td>
+                <td>
+                    <a href="/product/edit/@product.Id" class="btn btn-primary">Edit</a>
+                    <a href="/product/delete/@product.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

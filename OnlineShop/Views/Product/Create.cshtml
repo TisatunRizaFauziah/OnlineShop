@@ -1,0 +1,28 @@
+﻿@model Product
+
+<h2>Tambah Produk Baru</h2>
+
+<form method="post" enctype="multipart/form-data" action="Create">
+    <div class="form-group">
+        <label for="Name">Nama:</label>
+        <input type="text" id="Name" class="form-control" asp-for="Name" />
+    </div>
+    <div class="form-group">
+        <label for="Description">Deskripsi:</label>
+        <textarea id="Description" class="form-control" asp-for="Description"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="Price">Harga:</label>
+        <input type="number" id="Price" class="form-control" asp-for="Price" />
+    </div>
+    <div class="form-group">
+        <label for="Image">Gambar:</label>
+        <input type="file" id="Image" class="form-control-file" name="Image" />
+    </div>
+    <div class="form-group">
+        <label for="Stok">Stok:</label>
+        <input type="number" id="Stok" class="form-control" asp-for="Stok" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Tambah</button>
+</form>

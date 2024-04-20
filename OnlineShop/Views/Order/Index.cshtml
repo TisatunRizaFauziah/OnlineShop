@@ -1,0 +1,57 @@
+﻿@model List<OnlineShop.Models.Order> // Ubah model menjadi List<OnlineShop.Models.Order>
+
+@{
+    ViewData["Title"] = "Daftar Pesanan";
+}
+
+    <h1>Daftar Pesanan</h1>
+
+    <form asp-controller="Order" asp-action="Search" method="get">
+        <div class="form-group">
+            <input type="text" class="form-control" name="searchString" placeholder="Cari Pesanan">
+        </div>
+        <button type="submit" class="btn btn-primary">Cari</button>
+    </form>
+
+@if (Model.Any())
+{
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Nama Pelanggan</th>
+                    <th>Alamat</th>
+                    <th>Nomor Telepon</th>
+                    <th>Produk</th>
+                    <th>Status</th>
+                    <th>Keterangan</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var order in Model)
+            {
+                    <tr>
+                        <td>@order.Id</td>
+                        <td>@order.CustomerName</td>
+                        <td>@order.Address</td>
+                        <td>@order.PhoneNumber</td>
+                        @* <td>@order.ProductId</td> *@
+                        <td>@order.Status</td>
+                        <td>
+                            <form asp-controller="Order" asp-action="Accept" method="post">
+                                <input type="hidden" name="id" value="@order.Id" />
+                                <button type="submit" class="btn btn-success">Terima Pesanan</button>
+                            </form>
+                        </td>
+                        <td>
+                            <a href="/order/detail/@order.Id" class="btn btn-primary">Deatail</a>
+                        </td>
+                    </tr>
+            }
+            </tbody>
+        </table>
+}
+else
+{
+        <p>Tidak ada pesanan yang tersedia.</p>
+}
