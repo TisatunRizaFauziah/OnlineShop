@@ -17,9 +17,12 @@ namespace OnlineShop.Models
         [Phone]
         public string PhoneNumber { get; set; }
 
-        public virtual Product Product { get; set; }
+        public  Product Product { get; set; }
+
 
         public string Status { get; set; } = "Pesanan Belum Diterima";
+
+       
     }
 
     public class OrderForm
@@ -37,7 +40,9 @@ namespace OnlineShop.Models
         
         public int ProductId {  get; set; }
 
+
         public string Status { get; set; } = "Pesanan Belum Diterima";
+
     }
 
 }

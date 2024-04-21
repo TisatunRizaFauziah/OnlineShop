@@ -12,7 +12,7 @@ using OnlineShop.Models;
 namespace OnlineShop.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240420073646_table")]
+    [Migration("20240420131842_table")]
     partial class table
     {
         /// <inheritdoc />
@@ -96,6 +96,9 @@ namespace OnlineShop.Migrations
                         .HasColumnType("longtext");
 
                     b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Quantity")
                         .HasColumnType("int");
 
                     b.Property<string>("Status")

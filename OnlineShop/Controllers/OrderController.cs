@@ -36,8 +36,7 @@ namespace OnlineShop.Controllers
         {
             if (!ModelState.IsValid)
             {
-                // Jika model tidak valid, kembalikan view dengan data yang dimasukkan sebelumnya
-                ViewBag.Products = await _context.Products.ToListAsync(); // Pastikan ViewBag.Products diisi
+                ViewBag.Products = await _context.Products.ToListAsync(); 
                 return View(data);
             }
 
@@ -46,8 +45,9 @@ namespace OnlineShop.Controllers
                 var product = await _context.Products.FirstOrDefaultAsync(p => p.Id == Id);
                 if (product == null)
                 {
-                    return NotFound("Produk tidak ditemukan"); // Handle jika produk tidak ditemukan
+                    return NotFound("Produk tidak ditemukan"); 
                 }
+
 
                 var order = new Order
                 {
@@ -55,8 +55,10 @@ namespace OnlineShop.Controllers
                     Address = data.Address,
                     PhoneNumber = data.PhoneNumber,
                     Product = product,
-                    Status = "Pesanan Belum Diterima" // Mengambil status dari form
+                    Status = "Pesanan Belum Diterima" 
                 };
+
+
 
                 _context.Orders.Add(order);
                 await _context.SaveChangesAsync();
@@ -67,14 +69,11 @@ namespace OnlineShop.Controllers
             {
                 // Tangani kesalahan
                 ModelState.AddModelError("", "Terjadi kesalahan saat menyimpan pesanan: " + ex.Message);
-                ViewBag.Products = await _context.Products.ToListAsync(); // Pastikan ViewBag.Products diisi
+                ViewBag.Products = await _context.Products.ToListAsync(); 
                 return View(data);
             }
         }
 
-
-
-        // Harus login: Melihat detail pesanan beserta produk yang dipesan
         [Authorize]
         public IActionResult Detail(int? id)
         {
@@ -92,7 +91,6 @@ namespace OnlineShop.Controllers
             return View(order);
         }
 
-        // Harus login: Menerima pesanan (mengubah status pesanan)
         [Authorize]
         public IActionResult Accept(int? id)
         {
@@ -107,7 +105,7 @@ namespace OnlineShop.Controllers
                 return NotFound();
             }
 
-            // Mengubah status pesanan menjadi "pesanan diterima"
+       
             order.Status = "pesanan diterima";
             _context.SaveChanges();
 

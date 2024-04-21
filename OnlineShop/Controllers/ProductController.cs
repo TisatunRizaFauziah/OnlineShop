@@ -162,9 +162,23 @@ namespace OnlineShop.Controllers
 
             return View(product);
         }
+        public IActionResult DeleteConfirmed(int id)
+        {
+            var product = _context.Products.Find(id); 
+
+            if (product == null) 
+            {
+                return NotFound(); 
+            }
+
+            _context.Products.Remove(product); 
+            _context.SaveChanges(); 
+
+            return RedirectToAction("ListProducts", "Product"); 
+        }
 
 
-       
+
 
     }
 }

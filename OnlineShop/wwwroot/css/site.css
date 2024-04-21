@@ -16,11 +16,9 @@ body {
     background-color: #f0f0f0;
 }
 
-
-/* Header Style */
 header {
     background-color: #ffffff; 
-    padding: 15px 0; 
+    padding: 8px 0; 
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -41,7 +39,77 @@ header {
     .nav-link:hover {
         color: #007bff; 
     }
+header {
+    padding: 10px 0; /* Padding atas dan bawah */
+}
+
+.navbar-brand img {
+    margin-right: 10px; /* Jarak kanan antara logo dan teks */
+}
+
+.navbar-brand {
+    font-size: 24px; /* Ukuran font untuk nama toko */
+    font-weight: bold; /* Tebal teks */
+}
+
+.navbar-nav .nav-item {
+    margin-right: 10px; /* Jarak antara setiap item menu */
+}
+
+.navbar-nav .nav-link {
+    font-size: 18px; /* Ukuran font untuk setiap link menu */
+    font-weight: bold; /* Tebal teks */
+}
+
+.navbar-collapse {
+    justify-content: flex-end; /* Mengatur posisi menu navigasi ke kanan */
+}
+
+footer {
+    padding: 5px 0; /* Padding atas dan bawah pada footer */
+  /* Warna latar belakang footer */
+    text-align: center; /* Posisi teks ke tengah pada footer */
+    font-size: 14px; /* Ukuran font untuk teks pada footer */
+    color: #6c757d; /* Warna teks pada footer */
+    /* Jarak antara footer dengan konten di atasnya */
+}
 
 
+.navbar {
+    background-color: mintcream ;/* Warna latar belakang navbar */
+    color: #fff; /* Warna teks pada navbar */
+}
 
+.navbar-brand {
+    font-family: 'Arial Black', sans-serif; /* Ganti font untuk brand */
+    font-size: 24px; /* Ukuran font untuk brand */
+}
 
+.navbar-nav .nav-link {
+    font-family: 'Arial', sans-serif; /* Ganti font untuk link */
+    font-size: 18px; /* Ukuran font untuk link */
+    margin-right: 20px; /* Jarak antar link */
+}
+
+    .navbar-nav .nav-link:hover {
+        color: #fff; /* Warna teks saat hover */
+    }
+
+.navbar-toggler-icon {
+    color: #fff; /* Warna ikon toggler */
+}
+
+.container {
+    padding-top: 0px; /* Jarak antara header dan konten */
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+   
+    background-color: #f8f9fa;
+    border-top: 1px solid #dee2e6;
+    padding: 5px 0;
+    text-align: center;
+    color: #6c757d;
+}
